@@ -1,0 +1,54 @@
+/* ========================================================
+    1. RODIČOVSKÝ KONTEJNER (Řídí rozložení karet vedle sebe)
+======================================================== */
+.karty-obal {
+    display: flex;                           /* Zapne Flexbox pro vnořené karty */
+    justify-content: center;                 /* Vycentruje řadu karet na šířku */
+    align-items: stretch;                    /* Všechny karty v řádku mají stejnou výšku */
+    flex-wrap: wrap;                         /* Na mobilu/užší obrazovce zalomí karty pod sebe */
+    gap: 24px;                               /* Čistá mezera mezi kartami (nahrazuje marginy) */
+    padding: 40px 20px;
+}
+
+/* ========================================================
+    2. POLOŽKA / VNITŘNÍ FLEXBOX (Sloupcové uspořádání karty)
+======================================================== */
+.karta {
+    display: flex;                           /* Karta je zároveň rodičem pro své vnitřní prvky */
+    flex-direction: column;                  /* Prvky se řadí svisle pod sebe */
+    align-items: center;                     /* Vycentruje děti na křížové ose (vodorovně) */
+    gap: 12px;                               /* Jednotná svislá mezera mezi všemi prvky uvnitř */
+
+    width: 280px;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* margin-bottom už není potřeba, odstup řeší gap v .karta */
+}
+
+.karta h2 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.karta .popis {
+    margin: 0;
+    color: #64748b;
+}
+
+.tlacitko {
+    margin-top: auto;                         /* Flexbox trik: přitlačí tlačítko na dno karty */
+    background: #2563eb;
+    color: #ffffff;
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+}

@@ -1,0 +1,28 @@
+/* CSS STYLY - VYSVĚTLENÍ ŘÁDEK PO ŘÁDKU */
+
+.karta {
+    width: 280px;                            /* Pevná šířka karty */
+    margin: 30px auto;                       /* 'auto' po stranách kartu VYSTŘEDÍ */
+    padding: 24px;                           /* Vnitřní odstup: obsah se nelepí na okraje */
+    background: #ffffff;                     /* Bílé pozadí */
+    border-radius: 16px;                     /* Zaoblení rohů rámečku */
+    text-align: center;                      /* VYSTŘEDÍ všechen text i tlačítko uvnitř */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Jemný stín pod kartou */
+}
+
+.avatar {
+    width: 90px; 
+    height: 90px;                            /* Čtvercové rozměry fotky */
+    border-radius: 50%;                      /* 50% ze čtverce udělá dokonalý kruh */
+    object-fit: cover;                       /* Zabrání deformaci poměru stran obrázku */
+    margin-bottom: 12px;                     /* Odstup od nadpisu pod fotkou */
+}
+
+.tlacitko {
+    display: inline-block;                   /* Umožní odkazu mít padding a šířku */
+    background: #2563eb;                     /* Modrá barva tlačítka */
+    color: #ffffff;                          /* Bílý text odkazu */
+    padding: 10px 20px;                      /* 10px nahoře/dole, 20px po stranách */
+    border-radius: 8px;                      /* Zaoblení tlačítka */
+    text-decoration: none;                   /* Odstraní výchozí podtržení odkazu */
+}
