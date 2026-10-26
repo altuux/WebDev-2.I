@@ -1,0 +1,144 @@
+/* ============================================================
+    1. CSS PROMĚNNÉ & ZÁKLADNÍ RESET
+============================================================ */
+:root {
+    /* Pozadí a karty */
+    --barva-pozadi: #121212;          /* Temnáčerná */
+    --barva-karty: #1e1e1e;           /* Tmavě šedá */
+    
+    /* Akcenty a tlačítka */
+    --barva-primarni: #ffffff;        /* Bílé tlačítko */
+    --barva-tlacitko-hover: #d1d5db;  /* Šedá při hoveru */
+
+    /* Typografie */
+    --barva-text-hlavni: #f9fafb;     /* Jasně bílá */
+    --barva-text-vedlejsi: #9ca3af;   /* Světlejší šedá */
+
+    /* Geometrie & animace */
+    --radius-karty: 16px;
+    --radius-tlacitka: 8px;
+    --mezera-mrizky: 24px;
+    --plynuly-prechod: 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--barva-pozadi);
+    color: var(--barva-text-hlavni);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.hlavicka {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.hlavicka h1 {
+    font-size: 2.2rem;
+    color: var(--barva-primarni);
+    margin-bottom: 8px;
+}
+
+.hlavicka p {
+    color: var(--barva-text-vedlejsi);
+}
+
+/* ============================================================
+    2. CSS GRID (RODIČ: Řídí rozložení karet v mřížce)
+============================================================ */
+.karty-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+
+    /* Zapnutí mřížky a 3 rovnoměrné sloupce */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--mezera-mrizky);
+}
+
+/* ============================================================
+    3. FLEXBOX (VNITŘEK KARTY: Sloupcové uspořádání)
+============================================================ */
+.karta {
+    background-color: var(--barva-karty);
+    border-radius: var(--radius-karty);
+    padding: 28px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    /* Flexbox řídí vnitřek jedné karty */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+
+    /* Příprava pro plynulý hover */
+    transition: transform var(--plynuly-prechod), box-shadow var(--plynuly-prechod), border-color var(--plynuly-prechod);
+}
+
+/* Interaktivní efekt při najetí myší */
+.karta:hover {
+    transform: translateY(-8px);
+    border-color: var(--barva-primarni);
+    box-shadow: 0 12px 24px rgba(241, 243, 244, 0.15);
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 6px;
+}
+
+.karta h2 {
+    font-size: 1.3rem;
+    color: var(--barva-text-hlavni);
+}
+
+.karta .popis {
+    font-size: 0.95rem;
+    color: var(--barva-text-vedlejsi);
+    margin-bottom: 12px;
+}
+
+.tlacitko {
+    background-color: var(--barva-primarni);
+    color: #0f172a;
+    padding: 10px 24px;
+    border-radius: var(--radius-tlacitka);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color var(--plynuly-prechod);
+}
+
+.tlacitko:hover {
+    background-color: var(--barva-tlacitko-hover);
+    color: #464646;
+}
+
+/* ============================================================
+    4. RESPONZIVITA (MEDIA QUERIES)
+============================================================ */
+
+/* Tablet (do 850px): zúžíme na 2 sloupce */
+@media (max-width: 850px) {
+    .karty-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobil (do 550px): karty spadnou do 1 sloupce pod sebe */
+@media (max-width: 550px) {
+    .karty-grid {
+        grid-template-columns: 1fr;
+    }
+}
